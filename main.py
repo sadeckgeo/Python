@@ -20,10 +20,10 @@ client = openai.OpenAI(api_key=api_key)
 # Configuração do banco de dados
 DB_CONFIG = {
     "dbname": "deterb",
-    "user": "postgres",
-    "password": "acessopgcra",
-    "host": "localhost",
-    "port": "5432",
+    "user": "",
+    "password": "",
+    "host": "",
+    "port": "",
 }
 
 def gerar_sql(pergunta: str) -> str:
