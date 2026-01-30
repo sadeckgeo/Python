@@ -1,0 +1,62 @@
+import ee
+from ee_plugin import Map
+ee.Initialize()
+
+# Carregar a imagem
+img = ee.Image("projects/ee-doutorado/assets/mosaicos/img_2024_amz")
+
+# Parâmetros de visualização da imagem
+imageVisParam = {
+    "opacity": 1,
+    "bands": ["swir1","nir","red"], #"swir1","nir","red" / "VegSom", "NDMI", "NDWI"
+    "min": 2,
+    "max": 112,
+    "gamma": 1.0110000000000001
+}
+
+
+# Adicionar a camada ao mapa
+Map.addLayer(img, imageVisParam, 'img2024_RGB')
+
+dsf88 = ee.Image("projects/ee-doutorado/assets/dsf_1988_090124");
+dsf89 = ee.Image("projects/ee-doutorado/assets/dsf_1989_250124");
+dsf90 = ee.Image("projects/ee-doutorado/assets/dsf_1990");
+dsf91 = ee.Image("projects/ee-doutorado/assets/dsf_1991");
+dsf92 = ee.Image("projects/ee-doutorado/assets/dsf_1992");
+dsf93 = ee.Image("projects/ee-doutorado/assets/dsf_1993");
+dsf94 = ee.Image("projects/ee-doutorado/assets/dsf_1994");
+dsf95 = ee.Image("projects/ee-doutorado/assets/dsf_1995");
+dsf96 = ee.Image("projects/ee-doutorado/assets/dsf_1996");
+dsf97 = ee.Image("projects/ee-doutorado/assets/dsf_1997");
+dsf98 = ee.Image("projects/ee-doutorado/assets/dsf_1998");
+dsf99 = ee.Image("projects/ee-doutorado/assets/dsf_1999");
+dsf00 = ee.Image("projects/ee-doutorado/assets/dsf_2000");
+dsf01 = ee.Image("projects/ee-doutorado/assets/dsf_2001");
+dsf02 = ee.Image("projects/ee-doutorado/assets/dsf_2002");
+dsf03 = ee.Image("projects/ee-doutorado/assets/dsf_2003");
+dsf04 = ee.Image("projects/ee-doutorado/assets/dsf_2004");
+dsf05 = ee.Image("projects/ee-doutorado/assets/dsf_2005");
+dsf06 = ee.Image("projects/ee-doutorado/assets/dsf_2006");
+dsf07 = ee.Image("projects/ee-doutorado/assets/dsf_2007");
+dsf08 = ee.Image("projects/ee-doutorado/assets/dsf_2008");
+dsf09 = ee.Image("projects/ee-doutorado/assets/dsf_2009");
+dsf10 = ee.Image("projects/ee-doutorado/assets/dsf_2010");
+dsf11 = ee.Image("projects/ee-doutorado/assets/dsf_2011");
+dsf12 = ee.Image("projects/ee-doutorado/assets/dsf_2012");
+dsf13 = ee.Image("projects/ee-doutorado/assets/dsf_2013");
+dsf14 = ee.Image("projects/ee-doutorado/assets/dsf_2014");
+dsf15 = ee.Image("projects/ee-doutorado/assets/dsf_2015");
+dsf16 = ee.Image("projects/ee-doutorado/assets/dsf_2016");
+dsf17 = ee.Image("projects/ee-doutorado/assets/dsf_2017");
+dsf18 = ee.Image("projects/ee-doutorado/assets/dsf_2018");
+dsf19 = ee.Image("projects/ee-doutorado/assets/dsf_2019");
+dsf20 = ee.Image("projects/ee-doutorado/assets/dsf_2020");
+dsf21 = ee.Image("projects/ee-doutorado/assets/dsf_2021");
+dsf22 = ee.Image("projects/ee-doutorado/assets/dsf_2022");
+dsf23 = ee.Image("projects/ee-doutorado/assets/dsf_2023");
+
+
+dsfVisParam = {"opacity":1,"bands":["classification"],"palette":["ffc114"]};
+
+dsfAnual = ee.ImageCollection([dsf88, dsf89, dsf90,dsf91,dsf92,dsf93,dsf94,dsf95,dsf96,dsf97,dsf98,dsf99,dsf00,dsf01,dsf02,dsf03,dsf04,dsf05,dsf06,dsf07,dsf08,dsf09,dsf10,dsf11,dsf12,dsf13,dsf14,dsf15,dsf16,dsf17,dsf18,dsf19,dsf20,dsf21,dsf22,dsf23]).mosaic()
+Map.addLayer(dsfAnual,dsfVisParam,'dsfAnual')
